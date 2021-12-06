@@ -13,8 +13,9 @@ export default function App() {
   };
   return (
     <>
-      <View>
+      <View style={styles.containerText}>
         <Text>Hola,Coder!</Text>
+        <StatusBar style="auto" />
       </View>
       <View style={styles.container}>
         <View style={styles.containerInput}>
@@ -35,8 +36,14 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: "#fff",
   },
+  containerText: {
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "5%",
+  },
   containerInput: {
-    backgroundColor: "blue",
+    // backgroundColor: "blue",
     flexDirection: "row",
     width: "100%",
     height: "10%",
