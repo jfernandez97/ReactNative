@@ -1,21 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import React, { useState } from "react";
+
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
+  const [list, setList] = useState([]);
+
+  const [textInput, setTextInput] = useState("");
+
+  const onAdd = () => {
+    setList([...list, textInput]);
+  };
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <View>
+        <Text>Hola,Coder!</Text>
+      </View>
+      <View style={styles.container}>
+        <View style={styles.containerInput}>
+          <TextInput
+            placeholder="Escribe Aqui"
+            onChangeText={(text) => setTextInput(text)}
+            style={styles.input}
+          ></TextInput>
+          <Button title="Add" onPress={() => onAdd()} />
+        </View>
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    backgroundColor: "#fff",
+  },
+  containerInput: {
+    backgroundColor: "blue",
+    flexDirection: "row",
+    width: "100%",
+    height: "10%",
+    marginTop: "3%",
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  input: {
+    borderBottomColor: "grey",
+    borderBottomWidth: 5,
+    width: "70%",
   },
 });
